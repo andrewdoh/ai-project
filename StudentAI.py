@@ -11,18 +11,45 @@ class StudentAI():
 	def __init__(self, player, state):
 		self.last_move = state.get_last_move()
 		self.model = state
+
+	def get_available_moves(self):
+		return None
+
+	def min_max(self):
+		return None
+
+	def max_value(self):
+		return None
+
+	def min_value(self):
+		return None
+
+	def terminal_test(self):
+		return None
+
+
 	def make_move(self, deadline):
 		'''Write AI Here. Return a tuple (col, row)'''
 		width = self.model.get_width()
 		height = self.model.get_height()
+		#stores the current state of the boardmodel as a key-value pair where (i, j) is the key
+		# and value determines whether a location is taken
 		spaces = defaultdict(int)
 
 		for i in range(width):
 			for j in range(height):
+				#fills spaces with free spots and taken
 				spaces[(i,j)] = self.model.get_space(i, j)
 
+		#returns possible moves left for selection
 		moves = [k for k in spaces.keys() if spaces[k] == 0]
+
+
+		#returns randomly selected location in move
 		return moves[random.randint(0, len(moves) - 1)]
+
+		#return min_max which selects best possible move within depth d
+		#return min_max
 
 '''===================================
 DO NOT MODIFY ANYTHING BELOW THIS LINE
