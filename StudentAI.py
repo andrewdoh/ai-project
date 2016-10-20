@@ -11,7 +11,7 @@ class StudentAI():
 	def __init__(self, player, state):
 		self.last_move = state.get_last_move()
 		self.model = state
-		self.who = player
+		self.user = player
 	def get_available_moves(self):
 		width = self.model.get_width()
 		height = self.model.get_height()
@@ -30,42 +30,40 @@ class StudentAI():
 		return moves
 	def heuristic_eval(self):
 		count = 0
-		for i in self.get_width():
-			for j in self.get_height():
+		for i in range(width):
+			for j in range(height):
 				location = i, j
-				if self.get_space_tuple(location) == who or self.get_space_tuple(location) == 0:
+				if self.model.get_space_tuple(location) == user or self.model.get_space_tuple(location) == 0:
 					count += 1
 		return count
 
-	def min_max(self, depth):
+
+	def min_max(self, state, depth):
 		#fill actions list with possible moves
 		actions = self.get_available_moves()
 		# if depth zero we reached limit or we have no more moves left
 		if depth == 0 or not self.has_moves_left:
-			return None
+			return self.model.get_last_move()
 
-		if player == 1: #first player
+		if self.user == 0: #first player
 			best_value = float('-inf')
 			#apply every possible action in actions to state
 			for action in actions:
 				#clone board and apply every action in actions
-				clone = model.clone()
-				#clone.make_move(action)
-				best_value = min_max(depth - 1)
+				clone = self.model.clone()
+				clone.place_piece(action, self.user)
+				best_value = min_max(clone, depth - 1)
 
 		else: #second player
 			best_value = float('inf')
 			for action in actions:
 				#clone board and apply every action in actions
-				clone = model.clone()
-				best_value = min_max(depth - 1)
+				clone = self.model.clone()
+				clone.place_piece(action, self.user)
+				best_value = min_max(clone, depth - 1)
 
 			return best_value
 
-
-
-
-		return None
 
 	def make_move(self, deadline):
 		'''Write AI Here. Return a tuple (col, row)'''
