@@ -34,9 +34,8 @@ class StudentAI():
 			for j in self.get_height():
 				location = i, j
 				if self.get_space_tuple(location) == who or self.get_space_tuple(location) == 0:
-					count++
-	return count
-
+					count += 1
+		return count
 
 	def min_max(self, depth):
 		#fill actions list with possible moves
