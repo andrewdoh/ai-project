@@ -12,6 +12,7 @@ class StudentAI():
 		self.last_move = state.get_last_move()
 		self.model = state
 		self.user = player
+
 	def get_available_moves(self):
 		width = self.model.get_width()
 		height = self.model.get_height()
@@ -35,9 +36,9 @@ class StudentAI():
 		for i in range(width):
 			for j in range(height):
 				location = i, j
-				if self.model.get_space_tuple(location) == user or self.model.get_space_tuple(location) == 0:
+				if self.model.get_space_tuple(location) == self.user:
 					player_1_score += 1
-				elif self.model.get_space_tuple(location) == 1 or self.model.get_space_tuple(location) == 0:
+				else:
 					player_2_score += 1
 		return (player_1_score - player_2_score)
 
@@ -45,8 +46,8 @@ class StudentAI():
 	def min_max(self, state, depth, maximizing):
 
 		# if depth zero we reached limit or we have no more moves left
-		if depth == 0 or not self.model.has_moves_left:
-			return self.last_move
+		if depth == 0 or not self.model.has_moves_left():
+			return self.get_last_move
 
 		#fill actions list with possible moves
 		actions = self.get_available_moves()
@@ -60,7 +61,7 @@ class StudentAI():
 				clone.place_piece(action, self.user)
 
 				#recurse
-				v = min_max(clone, depth - 1, False)
+				v = self.min_max(clone, depth - 1, False)
 
 				#find highest value
 				best_value = max(v, best_value)
@@ -76,7 +77,7 @@ class StudentAI():
 				clone.place_piece(action, self.user)
 
 				#recurse
-				v = min_max(clone, depth - 1, True)
+				v = self.min_max(clone, depth - 1, True)
 
 				#find lowest value
 				best_value = min(v, best_value)
@@ -92,7 +93,7 @@ class StudentAI():
 		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-		return min_max(self.model, 3, True)
+		return self.min_max(self.model, 3, True)
 
 '''===================================
 DO NOT MODIFY ANYTHING BELOW THIS LINE
