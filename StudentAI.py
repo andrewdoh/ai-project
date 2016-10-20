@@ -28,41 +28,51 @@ class StudentAI():
 		moves = [k for k in spaces.keys() if spaces[k] == 0]
 
 		return moves
+	#heuristic function needs work
 	def heuristic_eval(self):
-		count = 0
+		player_1_score = 0
+		player_2_score = 0
 		for i in range(width):
 			for j in range(height):
 				location = i, j
 				if self.model.get_space_tuple(location) == user or self.model.get_space_tuple(location) == 0:
-					count += 1
-		return count
+					player_1_score += 1
+				elif self.model.get_space_tuple(location) == 1 or self.model.get_space_tuple(location) == 0:
+					player_2_score += 1
+		return (player_1_score - player_2_score)
 
 
 	def min_max(self, state, depth):
 		#fill actions list with possible moves
-		actions = self.get_available_moves()
+
 		# if depth zero we reached limit or we have no more moves left
 		if depth == 0 or not self.has_moves_left:
 			return self.model.get_last_move()
+		else:
+			actions = self.get_available_moves()
 
-		if self.user == 0: #first player
-			best_value = float('-inf')
-			#apply every possible action in actions to state
-			for action in actions:
-				#clone board and apply every action in actions
-				clone = self.model.clone()
-				clone.place_piece(action, self.user)
-				best_value = min_max(clone, depth - 1)
+			if self.user == 0: #first player
+				best_value = float('-inf') #infinity
+				#apply every possible action in actions to state
+				for action in actions:
+					#clone board and apply every action in actions
+					clone = self.model.clone()
+					clone.place_piece(action, self.user)
 
-		else: #second player
-			best_value = float('inf')
-			for action in actions:
-				#clone board and apply every action in actions
-				clone = self.model.clone()
-				clone.place_piece(action, self.user)
-				best_value = min_max(clone, depth - 1)
+					#recurse
+					score = best_value = min_max(clone, depth - 1)
 
-			return best_value
+			else: #second player
+				best_value = float('inf')# negative infinity
+				for action in actions:
+					#clone board and apply every action in actions
+					clone = self.model.clone()
+					clone.place_piece(action, self.user)
+
+					#recurse
+					score = best_value = min_max(clone, depth - 1)
+
+				return best_value
 
 
 	def make_move(self, deadline):
