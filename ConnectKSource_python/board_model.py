@@ -21,7 +21,7 @@ class BoardModel():
 		self.spaces_left = width*height
 		self.pieces = two_dim_list_of_ints(width, height)
 
-	def __str__(self): 
+	def __str__(self):
 		'''Returns game board as string'''
 		return str(self.pieces).replace("],", "]\n")
 
@@ -76,7 +76,7 @@ class BoardModel():
 		'''Checks for and returns a winner if there is one'''
 		width = self.width
 		height = self.height
-		if (self._winner == -2): #uncached 
+		if (self._winner == -2): #uncached
 			uncached = False
 			for i in range(self.width):
 				for j in range(self.height):
@@ -160,8 +160,8 @@ class BoardModel():
 							for k in range(self.k_length):
 								result.append((i+k, j+k))
 							return result
-							
-					
+
+
 				if(i-1<0 or j+1>=height or self.pieces[i-1][j+1] != self.pieces[i][j]):
 					count = 1
 					while(i+count < width and j-count >= 0 and self.pieces[i][j] == self.pieces[i+count][j-count]):
@@ -202,5 +202,3 @@ class BoardModel():
 				if(self.pieces[i][j] != right.pieces[i][j]):
 					return False
 		return True
-
-

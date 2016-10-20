@@ -11,7 +11,7 @@ class StudentAI():
 	def __init__(self, player, state):
 		self.last_move = state.get_last_move()
 		self.model = state
-
+		self.who = player
 	def get_available_moves(self):
 		width = self.model.get_width()
 		height = self.model.get_height()
@@ -28,19 +28,45 @@ class StudentAI():
 		moves = [k for k in spaces.keys() if spaces[k] == 0]
 
 		return moves
+	def heuristic_eval(self):
+		count = 0
+		for i in self.get_width():
+			for j in self.get_height():
+				location = i, j
+				if self.get_space_tuple(location) == who or self.get_space_tuple(location) == 0:
+					count++
+	return count
 
-	def min_max(self):
+
+	def min_max(self, depth):
+		#fill actions list with possible moves
+		actions = self.get_available_moves()
+		# if depth zero we reached limit or we have no more moves left
+		if depth == 0 or not self.has_moves_left:
+			return None
+
+		if player == 1: #first player
+			best_value = float('-inf')
+			#apply every possible action in actions to state
+			for action in actions:
+				#clone board and apply every action in actions
+				clone = model.clone()
+				#clone.make_move(action)
+				best_value = min_max(depth - 1)
+
+		else: #second player
+			best_value = float('inf')
+			for action in actions:
+				#clone board and apply every action in actions
+				clone = model.clone()
+				best_value = min_max(depth - 1)
+
+			return best_value
+
+
+
+
 		return None
-
-	def max_value(self):
-		return None
-
-	def min_value(self):
-		return None
-
-	def terminal_test(self):
-		return None
-
 
 	def make_move(self, deadline):
 		'''Write AI Here. Return a tuple (col, row)'''
@@ -50,7 +76,7 @@ class StudentAI():
 		return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-		#return min_max
+		#return min_max(4)
 
 '''===================================
 DO NOT MODIFY ANYTHING BELOW THIS LINE
