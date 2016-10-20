@@ -42,48 +42,57 @@ class StudentAI():
 		return (player_1_score - player_2_score)
 
 
-	def min_max(self, state, depth):
-		#fill actions list with possible moves
+	def min_max(self, state, depth, maximizing):
 
 		# if depth zero we reached limit or we have no more moves left
-		if depth == 0 or not self.has_moves_left:
-			return self.model.get_last_move()
-		else:
-			actions = self.get_available_moves()
+		if depth == 0 or not self.model.has_moves_left:
+			return self.last_move
 
-			if self.user == 0: #first player
-				best_value = float('-inf') #infinity
-				#apply every possible action in actions to state
-				for action in actions:
-					#clone board and apply every action in actions
-					clone = self.model.clone()
-					clone.place_piece(action, self.user)
+		#fill actions list with possible moves
+		actions = self.get_available_moves()
 
-					#recurse
-					score = best_value = min_max(clone, depth - 1)
+		if maximizing: #maximizing player
+			best_value = float('-inf') # negative infinity
+			#apply every possible action in actions to state
+			for action in actions:
+				#clone board and apply every action in actions
+				clone = self.model.clone()
+				clone.place_piece(action, self.user)
 
-			else: #second player
-				best_value = float('inf')# negative infinity
-				for action in actions:
-					#clone board and apply every action in actions
-					clone = self.model.clone()
-					clone.place_piece(action, self.user)
+				#recurse
+				v = min_max(clone, depth - 1, False)
 
-					#recurse
-					score = best_value = min_max(clone, depth - 1)
+				#find highest value
+				best_value = max(v, best_value)
 
-				return best_value
+			return best_value
+
+		else: #minimizing player
+			best_value = float('inf')# infinity
+			#apply every possible action in actions to state
+			for action in actions:
+				#clone board and apply every action in actions
+				clone = self.model.clone()
+				clone.place_piece(action, self.user)
+
+				#recurse
+				v = min_max(clone, depth - 1, True)
+
+				#find lowest value
+				best_value = min(v, best_value)
+
+			return best_value
 
 
 	def make_move(self, deadline):
 		'''Write AI Here. Return a tuple (col, row)'''
 
 		#returns randomly selected location in move
-		moves = self.get_available_moves()
-		return moves[random.randint(0, len(moves) - 1)]
+		#moves = self.get_available_moves()
+		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-		#return min_max(4)
+		return min_max(self.model, 3, True)
 
 '''===================================
 DO NOT MODIFY ANYTHING BELOW THIS LINE
