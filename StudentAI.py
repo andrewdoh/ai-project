@@ -34,13 +34,30 @@ class StudentAI():
 		player_1_score = 0
 		player_2_score = 0
 		print('pumpkin')
+		#count horizontal
 		for i in range(state.get_width()):
 			for j in range(state.get_height()):
+				location = i, j
+				free_space = 0
+				if state.get_space_tuple(location) == (1 if self.user == 1 else 2):
+					free_space += 1
+					print(free_space)
+				#else:
+				#	player_2_score += 1
+				elif state.get_space_tuple(location) == 0:
+					free_space += 1
+			if free_space == 8:
+				player_1_score += 1
+		'''#count veritical
+		for i in range(state.get_height()):
+			for j in range(state.get_width()):
 				location = i, j
 				if state.get_space_tuple(location) == 1 if self.user == 1 else 2 or state.get_space_tuple(location) == 0:
 					player_1_score += 1
 				#else:
 				#	player_2_score += 1
+		'''
+		player_1_score += player_1_score % 9
 		print(player_1_score)
 		print(player_2_score)
 		return (player_1_score - player_2_score)
@@ -79,7 +96,7 @@ class StudentAI():
 				print(best_value)
 
 			print('blueberries')
-			return action
+			#return action
 
 		else: #minimizing player
 
