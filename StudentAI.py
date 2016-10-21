@@ -31,37 +31,7 @@ class StudentAI():
 		return moves
 	#heuristic function needs work
 	def heuristic_eval(self, state):
-		player_1_score = 0
-		player_2_score = 0
-		print('pumpkin')
-		#count horizontal
-		for i in range(state.get_width()):
-			for j in range(state.get_height()):
-				location = i, j
-				free_space = 0
-				if state.get_space_tuple(location) == (1 if self.user == 1 else 2):
-					free_space += 1
-					print(free_space)
-				#else:
-				#	player_2_score += 1
-				elif state.get_space_tuple(location) == 0:
-					free_space += 1
-			if free_space == 8:
-				player_1_score += 1
-		'''#count veritical
-		for i in range(state.get_height()):
-			for j in range(state.get_width()):
-				location = i, j
-				if state.get_space_tuple(location) == 1 if self.user == 1 else 2 or state.get_space_tuple(location) == 0:
-					player_1_score += 1
-				#else:
-				#	player_2_score += 1
-		'''
-		player_1_score += player_1_score % 9
-		print(player_1_score)
-		print(player_2_score)
-		return (player_1_score - player_2_score)
-
+		return random.randint(0, 9999)
 
 	def min_max(self, state, depth, maximizing):
 		# if depth zero we reached limit or we have no more moves left
@@ -75,6 +45,7 @@ class StudentAI():
 			#fill actions list with possible moves
 			actions = self.get_available_moves(state)
 			best_value = -99999 # negative infinity
+			best_action = actions[0]
 			#apply every possible action in actions to state
 			print('waffles')
 			#print(actions)
@@ -89,14 +60,19 @@ class StudentAI():
 				#recurse
 				v = self.min_max(nextState, depth - 1, False)
 				print('cake')
-
+				print (best_value)
+				print(v)
 				#find highest value
-				best_value = max(v, best_value)
+				#best_value = max(v, best_value)
+				if v > best_value:
+					best_action = action
+					best_value = v
 				print('best_value: ')
 				print(best_value)
-
+				print('best_move')
+				print(best_action)
 			print('blueberries')
-			#return action
+			return best_action
 
 		else: #minimizing player
 
