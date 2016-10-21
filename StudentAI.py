@@ -13,9 +13,9 @@ class StudentAI():
 		self.model = state
 		self.user = player
 
-	def get_available_moves(self):
-		width = self.model.get_width()
-		height = self.model.get_height()
+	def get_available_moves(self, state):
+		width = state.get_width()
+		height = state.get_height()
 		#stores the current state of the boardmodel as a key-value pair where (i, j) is the key
 		# and value determines whether a location is taken
 		spaces = defaultdict(int)
@@ -23,7 +23,7 @@ class StudentAI():
 		for i in range(width):
 			for j in range(height):
 				#fills spaces with free spots and taken
-				spaces[(i,j)] = self.model.get_space(i, j)
+				spaces[(i,j)] = state.get_space(i, j)
 
 		#returns possible moves left for selection
 		moves = [k for k in spaces.keys() if spaces[k] == 0]
@@ -44,56 +44,76 @@ class StudentAI():
 
 
 	def min_max(self, state, depth, maximizing):
-
 		# if depth zero we reached limit or we have no more moves left
-		if depth == 0 or not self.model.has_moves_left():
-			return self.get_last_move
+		if depth == 0 or not state.has_moves_left():
+			print ('THE END')
+			return None
 
-		#fill actions list with possible moves
-		actions = self.get_available_moves()
 
 		if maximizing: #maximizing player
+
+			#fill actions list with possible moves
+			actions = self.get_available_moves(state)
 			best_value = float('-inf') # negative infinity
 			#apply every possible action in actions to state
+			print('PIZZA')
+			print(actions)
 			for action in actions:
 				#clone board and apply every action in actions
-				clone = self.model.clone()
-				clone.place_piece(action, self.user)
+
+				#print (action)
+				clone = state.clone()
+				nextState = clone.place_piece(action, self.user)
+				print(nextState.get_last_move())
+				print (nextState)
+				print (nextState.get_spaces_left())
 
 				#recurse
-				v = self.min_max(clone, depth - 1, False)
+				v = self.min_max(nextState, depth - 1, False)
 
 				#find highest value
 				best_value = max(v, best_value)
+				print ('best value: ' + best_value)
 
 			return best_value
 
 		else: #minimizing player
+
+			actions = self.get_available_moves(state)
 			best_value = float('inf')# infinity
 			#apply every possible action in actions to state
+			print('pancakes')
+			print (actions)
 			for action in actions:
-				#clone board and apply every action in actions
-				clone = self.model.clone()
-				clone.place_piece(action, self.user)
 
+				#print (action)
+				#clone board and apply every action in actions
+				clone = state.clone()
+
+				nextState = clone.place_piece(action, self.user)
+				print(nextState.get_last_move())
+				print (nextState)
+				print (nextState.get_spaces_left())
 				#recurse
-				v = self.min_max(clone, depth - 1, True)
+
+				v = self.min_max(nextState, depth - 1, True)
 
 				#find lowest value
 				best_value = min(v, best_value)
+				print ('best value: ' + best_value)
 
 			return best_value
 
 
 	def make_move(self, deadline):
 		'''Write AI Here. Return a tuple (col, row)'''
-
+		#print ('hello')
 		#returns randomly selected location in move
 		#moves = self.get_available_moves()
 		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-		return self.min_max(self.model, 3, True)
+		return self.min_max(self.model, 15, True)
 
 '''===================================
 DO NOT MODIFY ANYTHING BELOW THIS LINE

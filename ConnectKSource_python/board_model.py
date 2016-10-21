@@ -67,7 +67,9 @@ class BoardModel():
 	def get_last_move(self):
 		'''Returns the last move made'''
 		return self.last_move
-
+	def get_spaces_left(self):
+		'''Returns the spaces left as an int'''
+		return self.spaces_left
 	def has_moves_left(self):
 		'''Returns if the game board has any empty spaces left'''
 		return self.spaces_left > 0
