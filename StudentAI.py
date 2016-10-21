@@ -30,13 +30,14 @@ class StudentAI():
 
 		return moves
 	#heuristic function needs work
-	def heuristic_eval(self):
+	def heuristic_eval(self, state):
 		player_1_score = 0
 		player_2_score = 0
+
 		for i in range(width):
 			for j in range(height):
 				location = i, j
-				if self.model.get_space_tuple(location) == self.user:
+				if self.model.get_space_tuple(location) == 1 if self.user == 1 else 2:
 					player_1_score += 1
 				else:
 					player_2_score += 1
@@ -47,7 +48,8 @@ class StudentAI():
 		# if depth zero we reached limit or we have no more moves left
 		if depth == 0 or not state.has_moves_left():
 			print ('THE END')
-			return None
+			sys.exit(0)
+
 
 
 		if maximizing: #maximizing player
@@ -76,7 +78,7 @@ class StudentAI():
 				#best_value = max(v, best_value)
 				#print ('best value: ' + best_value)
 
-			return None
+			#return best_value
 
 		else: #minimizing player
 
@@ -104,7 +106,7 @@ class StudentAI():
 				#best_value = min(v, best_value)
 				#print ('best value: ' + best_value)
 
-			return None
+			#return best_value
 
 
 	def make_move(self, deadline):
@@ -115,7 +117,7 @@ class StudentAI():
 		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-		return self.min_max(self.model, 12, True)
+		return self.min_max(self.model, 20, True)
 
 '''===================================
 DO NOT MODIFY ANYTHING BELOW THIS LINE
