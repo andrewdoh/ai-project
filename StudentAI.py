@@ -56,26 +56,27 @@ class StudentAI():
 			actions = self.get_available_moves(state)
 			best_value = float('-inf') # negative infinity
 			#apply every possible action in actions to state
-			print('PIZZA')
-			print(actions)
+			print('waffles')
+			#print(actions)
 			for action in actions:
 				#clone board and apply every action in actions
 
 				#print (action)
 				clone = state.clone()
-				nextState = clone.place_piece(action, self.user)
-				print(nextState.get_last_move())
+				nextState = clone.place_piece(action, 1 if self.user == 1 else 2)
+				#use heuristic to determine quality of play
+				#print(nextState.get_last_move())
 				print (nextState)
-				print (nextState.get_spaces_left())
+				#print (nextState.get_spaces_left())
 
 				#recurse
 				v = self.min_max(nextState, depth - 1, False)
 
 				#find highest value
-				best_value = max(v, best_value)
-				print ('best value: ' + best_value)
+				#best_value = max(v, best_value)
+				#print ('best value: ' + best_value)
 
-			return best_value
+			return None
 
 		else: #minimizing player
 
@@ -83,26 +84,27 @@ class StudentAI():
 			best_value = float('inf')# infinity
 			#apply every possible action in actions to state
 			print('pancakes')
-			print (actions)
+			#print (actions)
 			for action in actions:
 
 				#print (action)
 				#clone board and apply every action in actions
 				clone = state.clone()
 
-				nextState = clone.place_piece(action, self.user)
-				print(nextState.get_last_move())
+				nextState = clone.place_piece(action, 2 if self.user == 1 else 1)
+				#use heuristic to determine quality of play
+				#print(nextState.get_last_move())
 				print (nextState)
-				print (nextState.get_spaces_left())
+				#print (nextState.get_spaces_left())
 				#recurse
 
 				v = self.min_max(nextState, depth - 1, True)
 
 				#find lowest value
-				best_value = min(v, best_value)
-				print ('best value: ' + best_value)
+				#best_value = min(v, best_value)
+				#print ('best value: ' + best_value)
 
-			return best_value
+			return None
 
 
 	def make_move(self, deadline):
@@ -113,7 +115,7 @@ class StudentAI():
 		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-		return self.min_max(self.model, 15, True)
+		return self.min_max(self.model, 12, True)
 
 '''===================================
 DO NOT MODIFY ANYTHING BELOW THIS LINE
