@@ -33,14 +33,16 @@ class StudentAI():
 	def heuristic_eval(self, state):
 		player_1_score = 0
 		player_2_score = 0
-
-		for i in range(width):
-			for j in range(height):
+		print('pumpkin')
+		for i in range(state.get_width()):
+			for j in range(state.get_height()):
 				location = i, j
-				if self.model.get_space_tuple(location) == 1 if self.user == 1 else 2:
+				if state.get_space_tuple(location) == 1 if self.user == 1 else 2 or state.get_space_tuple(location) == 0:
 					player_1_score += 1
-				else:
-					player_2_score += 1
+				#else:
+				#	player_2_score += 1
+		print(player_1_score)
+		print(player_2_score)
 		return (player_1_score - player_2_score)
 
 
@@ -48,42 +50,41 @@ class StudentAI():
 		# if depth zero we reached limit or we have no more moves left
 		if depth == 0 or not state.has_moves_left():
 			print ('THE END')
-			sys.exit(0)
-
-
+			#use heuristic to determine quality of play
+			return self.heuristic_eval(state)
 
 		if maximizing: #maximizing player
 
 			#fill actions list with possible moves
 			actions = self.get_available_moves(state)
-			best_value = float('-inf') # negative infinity
+			best_value = -99999 # negative infinity
 			#apply every possible action in actions to state
 			print('waffles')
 			#print(actions)
 			for action in actions:
 				#clone board and apply every action in actions
-
-				#print (action)
 				clone = state.clone()
 				nextState = clone.place_piece(action, 1 if self.user == 1 else 2)
-				#use heuristic to determine quality of play
-				#print(nextState.get_last_move())
+
+				#print (best_value)
 				print (nextState)
-				#print (nextState.get_spaces_left())
 
 				#recurse
 				v = self.min_max(nextState, depth - 1, False)
+				print('cake')
 
 				#find highest value
-				#best_value = max(v, best_value)
-				#print ('best value: ' + best_value)
+				best_value = max(v, best_value)
+				print('best_value: ')
+				print(best_value)
 
-			#return best_value
+			print('blueberries')
+			return action
 
 		else: #minimizing player
 
 			actions = self.get_available_moves(state)
-			best_value = float('inf')# infinity
+			best_value = 99999 #infinity
 			#apply every possible action in actions to state
 			print('pancakes')
 			#print (actions)
@@ -94,20 +95,20 @@ class StudentAI():
 				clone = state.clone()
 
 				nextState = clone.place_piece(action, 2 if self.user == 1 else 1)
-				#use heuristic to determine quality of play
 				#print(nextState.get_last_move())
+				print (best_value)
 				print (nextState)
 				#print (nextState.get_spaces_left())
 				#recurse
 
 				v = self.min_max(nextState, depth - 1, True)
-
+				print('pie')
+				print (best_value)
 				#find lowest value
-				#best_value = min(v, best_value)
-				#print ('best value: ' + best_value)
+				best_value = min(v, best_value)
+				print (best_value)
 
-			#return best_value
-
+			return best_value
 
 	def make_move(self, deadline):
 		'''Write AI Here. Return a tuple (col, row)'''
@@ -117,7 +118,7 @@ class StudentAI():
 		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-		return self.min_max(self.model, 20, True)
+		return self.min_max(self.model, 1, True)
 
 '''===================================
 DO NOT MODIFY ANYTHING BELOW THIS LINE
