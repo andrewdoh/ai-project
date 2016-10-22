@@ -38,14 +38,14 @@ class StudentAI():
 		if depth == 0 or not state.has_moves_left():
 			print ('THE END')
 			#use heuristic to determine quality of play
-			return self.heuristic_eval(state), (0,0)
+			return self.heuristic_eval(state), None
 
 		if maximizing: #maximizing player
 
 			#fill actions list with possible moves
 			actions = self.get_available_moves(state)
 			best_value = -99999 # negative infinity
-			best_action = actions[0]
+
 			#apply every possible action in actions to state
 			print('waffles')
 
