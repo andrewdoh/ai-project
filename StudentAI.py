@@ -55,7 +55,7 @@ class StudentAI():
 				nextState = clone.place_piece(action, 1 if self.user == 1 else 2)
 
 				#print (best_value)
-				print (nextState)
+				#print (nextState)
 
 				#recurse
 				v = self.min_max(nextState, depth - 1, False)
@@ -63,13 +63,13 @@ class StudentAI():
 				print (best_value)
 				print(v)
 				#find highest value
-				#best_value = max(v, best_value)
+
 				if v > best_value:
 					best_action = action
 					best_value = v
-				print('best_value: ')
+				print('max best_value: ')
 				print(best_value)
-				print('best_move')
+				print('max best_move')
 				print(best_action)
 			print('blueberries')
 			return best_action
@@ -78,30 +78,31 @@ class StudentAI():
 
 			actions = self.get_available_moves(state)
 			best_value = 99999 #infinity
+
 			#apply every possible action in actions to state
 			print('pancakes')
 			#print (actions)
 			for action in actions:
 
-				#print (action)
 				#clone board and apply every action in actions
 				clone = state.clone()
-
-				nextState = clone.place_piece(action, 2 if self.user == 1 else 1)
-				#print(nextState.get_last_move())
-				print (best_value)
-				print (nextState)
-				#print (nextState.get_spaces_left())
+				nextState = clone.place_piece(action, -1 if self.user == 1 else 1)
 				#recurse
-
 				v = self.min_max(nextState, depth - 1, True)
 				print('pie')
 				print (best_value)
+				print(v)
 				#find lowest value
-				best_value = min(v, best_value)
+				if v < best_value:
+					best_action = action
+					best_value = v
+				print('best min best value: ')
 				print (best_value)
-
+				print('best action min action: ')
+				print (best_action)
+			print('strawberries')
 			return best_value
+
 
 	def make_move(self, deadline):
 		'''Write AI Here. Return a tuple (col, row)'''
@@ -111,7 +112,7 @@ class StudentAI():
 		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-		return self.min_max(self.model, 1, True)
+		return self.min_max(self.model, 2, True)
 
 '''===================================
 DO NOT MODIFY ANYTHING BELOW THIS LINE
