@@ -38,7 +38,7 @@ class StudentAI():
 		if depth == 0 or not state.has_moves_left():
 			print ('THE END')
 			#use heuristic to determine quality of play
-			return self.heuristic_eval(state)
+			return self.heuristic_eval(state), (0,0)
 
 		if maximizing: #maximizing player
 
@@ -48,34 +48,25 @@ class StudentAI():
 			best_action = actions[0]
 			#apply every possible action in actions to state
 			print('waffles')
-			#print(actions)
+
 			for action in actions:
 				#clone board and apply every action in actions
 				clone = state.clone()
 				nextState = clone.place_piece(action, self.user)
 
-				#print (best_value)
-				#print (nextState)
-
+				print('tuple recursive')
 				#recurse
 				v = self.min_max(nextState, depth - 1, False)
 				print('cake')
-				print (best_value)
-				print(v)
-				#find highest value
 
-				if v > best_value:
+				#find highest value
+				print(action)
+				if v[0] > best_value:
 					best_action = action
-					best_value = v
-				print('max best_value: ')
-				print(best_value)
-				print('max best_move')
-				print(best_action)
-				print('max_lat_move')
-				print(state.get_last_move())
-				print(self.user)
+					best_value = v[0]
+
 			print('blueberries')
-			return best_value
+			return best_value,best_action
 
 		else: #minimizing player
 
@@ -93,18 +84,14 @@ class StudentAI():
 				#recurse
 				v = self.min_max(nextState, depth - 1, True)
 				print('pie')
-				print (best_value)
-				print(v)
+
 				#find lowest value
-				if v < best_value:
+				if v[0] < best_value:
 					best_action = action
-					best_value = v
-				print('best min best value: ')
-				print (best_value)
-				print('best action min action: ')
-				print (best_action)
+					best_value = v[0]
+
 			print('strawberries')
-			return best_value
+			return best_value,best_action
 
 
 	def make_move(self, deadline):
@@ -115,7 +102,10 @@ class StudentAI():
 		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-		return self.min_max(self.model, 3, True)
+		tup = self.min_max(self.model, 2, True)
+		#print ('TUP')
+		#print (tup)
+		return tup[1]
 
 '''===================================
 DO NOT MODIFY ANYTHING BELOW THIS LINE
