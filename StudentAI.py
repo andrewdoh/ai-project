@@ -52,8 +52,8 @@ class StudentAI():
 			for action in actions:
 				#clone board and apply every action in actions
 				clone = state.clone()
-				nextState = clone.place_piece(action, self.user)
-
+				nextState = clone.place_piece(action, 1 if self.user == 1 else -1)
+				print(nextState)
 				print('tuple recursive')
 				#recurse
 				v = self.min_max(nextState, depth - 1, False)
@@ -80,7 +80,7 @@ class StudentAI():
 
 				#clone board and apply every action in actions
 				clone = state.clone()
-				nextState = clone.place_piece(action, self.user)
+				nextState = clone.place_piece(action, -1 if self.user == 1 else 1)
 				#recurse
 				v = self.min_max(nextState, depth - 1, True)
 				print('pie')
@@ -102,7 +102,7 @@ class StudentAI():
 		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-		tup = self.min_max(self.model, 2, True)
+		tup = self.min_max(self.model, 3, True)
 		#print ('TUP')
 		#print (tup)
 		return tup[1]
