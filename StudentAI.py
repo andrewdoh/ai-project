@@ -31,7 +31,7 @@ class StudentAI():
 		return moves
 	#heuristic function needs work
 	def heuristic_eval(self, state):
-		return random.randint(0, 9999)
+		return random.randint(-9999, 9999)
 
 	def min_max(self, state, depth, maximizing):
 		# if depth zero we reached limit or we have no more moves left
@@ -52,7 +52,7 @@ class StudentAI():
 			for action in actions:
 				#clone board and apply every action in actions
 				clone = state.clone()
-				nextState = clone.place_piece(action, 1 if self.user == 1 else 2)
+				nextState = clone.place_piece(action, self.user)
 
 				#print (best_value)
 				#print (nextState)
@@ -71,8 +71,11 @@ class StudentAI():
 				print(best_value)
 				print('max best_move')
 				print(best_action)
+				print('max_lat_move')
+				print(state.get_last_move())
+				print(self.user)
 			print('blueberries')
-			return best_action
+			return best_value
 
 		else: #minimizing player
 
@@ -86,7 +89,7 @@ class StudentAI():
 
 				#clone board and apply every action in actions
 				clone = state.clone()
-				nextState = clone.place_piece(action, -1 if self.user == 1 else 1)
+				nextState = clone.place_piece(action, self.user)
 				#recurse
 				v = self.min_max(nextState, depth - 1, True)
 				print('pie')
@@ -112,7 +115,7 @@ class StudentAI():
 		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-		return self.min_max(self.model, 2, True)
+		return self.min_max(self.model, 3, True)
 
 '''===================================
 DO NOT MODIFY ANYTHING BELOW THIS LINE
