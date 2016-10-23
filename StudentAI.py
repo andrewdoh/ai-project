@@ -33,77 +33,37 @@ class StudentAI():
 	def heuristic_eval(self, state):
 		'''Returns the winning spaces'''
 
-		player_1_score  = random.randint(-9999, 9999)
-		play_2_score = random.randint(-9999, 9999)
-		horizontal = []
-		vertical = []
-		up = []
-		down = []
-		width = state.get_width()
+		player_1_score  = 15
+		player_2_score = 12
+
 		height = state.get_height()
+		width = state.get_width()
 
 		print('ENTER THE DRAGON')
-		for i in range(width):
-			for j in range(height):
-				''' not sure whats this for
-				if(state.pieces[i][j] == 0):
-					if(state.gravity):
-						break
-					else:
-						continue
-				'''
-				''' count horizontal'''
-				if(i-1<0 or state.pieces[i-1][j] != state.pieces[i][j]):
-					count = 1
-					print('DO YOU KNOW THE MUFFIN MAN')
-					while(i+count < width and state.pieces[i][j] == state.pieces[i+count][j]):
-						count+=1
-						if(count >= state.k_length):
-							for k in range(state.k_length):
-								horizontal.append((i+k, j))
+		for i in range(height):
+			has_1 = False
+			has_2 = False
+			print ('cupcake')
+			for j in range(width):
 
-							#return result
-					print('list: ')
-					print (horizontal)
-					print('count: ')
-					print(count)
-					print('i and j:')
-					print (i,j)
-
-
-				''' count veritical'''
-				if(i-1<0 or j-1<0 or state.pieces[i-1][j-1] != state.pieces[i][j]):
-					count = 1
-					print('tralalalal')
-					while(i+count < width and j+count < height and state.pieces[i][j] == state.pieces[i+count][j+count]):
-						count+=1
-						if(count >= state.k_length):
-							for k in range(state.k_length):
-								vertical.append((i+k, j+k))
-					print (vertical)
-
-				''' count '''
-				print('trick')
-				if(i-1<0 or j+1>=height or state.pieces[i-1][j+1] != state.pieces[i][j]):
-					count = 1
-					while(i+count < width and j-count >= 0 and state.pieces[i][j] == state.pieces[i+count][j-count]):
-						count+=1
-						print('or')
-						if(count >= state.k_length):
-							for k in range(state.k_length):
-								down.append((i+k, j-k))
-
-				''' count '''
-				print('treat')
-				if(j-1<0 or state.pieces[i][j-1] != state.pieces[i][j]):
-					count = 1
-					while(j+count < height and state.pieces[i][j] == state.pieces[i][j+count]):
-						count+=1
-						if(count >= state.k_length):
-							for k in range(state.k_length):
-								up.append((i, j+k))
-
-		return (player_1_score - play_2_score)
+				if state.get_space(j, i) == 1:
+					has_1 = True
+				elif state.get_space(j, i) == -1:
+					has_2 = True
+			if has_1 and not has_2:
+				player_1_score += 1
+			elif not has_1 and has_2:
+				player_2_score += 1
+			elif not has_1 and not has_2:
+				player_1_score += 1
+				player_2_score += 1
+			print('player 1 score: ')
+			print(player_1_score)
+			print('player 2 score: ')
+			print(player_2_score)
+		print ('player difference')
+		print (player_1_score - player_2_score)
+		return (player_1_score - player_2_score)
 
 	def min_max(self, state, depth, maximizing):
 		# if depth zero we reached limit or we have no more moves left
@@ -125,11 +85,9 @@ class StudentAI():
 				#clone board and apply every action in actions
 				clone = state.clone()
 				nextState = clone.place_piece(action, 1 if self.user == 1 else -1)
-				print(nextState)
-				print('tuple recursive')
+
 				#recurse
 				v = self.min_max(nextState, depth - 1, False)
-				print('cake')
 
 				#find highest value
 				print(action)
@@ -137,7 +95,7 @@ class StudentAI():
 					best_action = action
 					best_value = v[0]
 
-			print('blueberries')
+
 			return best_value,best_action
 
 		else: #minimizing player
@@ -146,8 +104,8 @@ class StudentAI():
 			best_value = 99999 #infinity
 
 			#apply every possible action in actions to state
-			print('pancakes')
-			#print (actions)
+
+
 			for action in actions:
 
 				#clone board and apply every action in actions
@@ -155,14 +113,14 @@ class StudentAI():
 				nextState = clone.place_piece(action, -1 if self.user == 1 else 1)
 				#recurse
 				v = self.min_max(nextState, depth - 1, True)
-				print('pie')
+
 
 				#find lowest value
 				if v[0] < best_value:
 					best_action = action
 					best_value = v[0]
 
-			print('strawberries')
+
 			return best_value,best_action
 
 
@@ -174,7 +132,7 @@ class StudentAI():
 		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-		tup = self.min_max(self.model, 2, True)
+		tup = self.min_max(self.model, 3, True)
 		#print ('TUP')
 		#print (tup)
 		return tup[1]
