@@ -31,7 +31,70 @@ class StudentAI():
 		return moves
 	#heuristic function needs work
 	def heuristic_eval(self, state):
-		return random.randint(-9999, 9999)
+		'''Returns the winning spaces'''
+		horizontal = []
+		vertical = []
+		up = []
+		down = []
+		width = state.get_width()
+		height = state.get_height()
+
+		print('ENTER THE DRAGON')
+		for i in range(width):
+			for j in range(height):
+				''' not sure whats this for
+				if(state.pieces[i][j] == 0):
+					if(state.gravity):
+						break
+					else:
+						continue
+				'''
+				''' count horizontal'''
+				if(i-1<0 or state.pieces[i-1][j] != state.pieces[i][j]):
+					count = 1
+					print('DO YOU KNOW THE MUFFIN MAN')
+					while(i+count < width and state.pieces[i][j] == state.pieces[i+count][j]):
+						count+=1
+						if(count >= state.k_length):
+							for k in range(state.k_length):
+								horizontal.append((i+k, j))
+
+							#return result
+					print (horizontal)
+					print (count)
+					print (i,j)
+
+
+				''' count veritical'''
+				if(i-1<0 or j-1<0 or state.pieces[i-1][j-1] != state.pieces[i][j]):
+					count = 1
+					print('tralalalal')
+					while(i+count < width and j+count < height and state.pieces[i][j] == state.pieces[i+count][j+count]):
+						count+=1
+						if(count >= state.k_length):
+							for k in range(state.k_length):
+								vertical.append((i+k, j+k))
+					print (vertical)
+
+
+				if(i-1<0 or j+1>=height or state.pieces[i-1][j+1] != state.pieces[i][j]):
+					count = 1
+					while(i+count < width and j-count >= 0 and state.pieces[i][j] == state.pieces[i+count][j-count]):
+						count+=1
+						if(count >= state.k_length):
+							for k in range(state.k_length):
+								result.append((i+k, j-k))
+							return result
+
+				if(j-1<0 or state.pieces[i][j-1] != state.pieces[i][j]):
+					count = 1
+					while(j+count < height and state.pieces[i][j] == state.pieces[i][j+count]):
+						count+=1
+						if(count >= state.k_length):
+							for k in range(state.k_length):
+								result.append((i, j+k))
+							return result
+		return result
 
 	def min_max(self, state, depth, maximizing):
 		# if depth zero we reached limit or we have no more moves left
