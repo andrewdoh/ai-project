@@ -33,13 +33,13 @@ class StudentAI():
 	def heuristic_eval(self, state):
 		'''Returns the winning spaces'''
 
-		player_1_score  = 15
-		player_2_score = 12
+		player_1_score  = 0
+		player_2_score = 0
 
 		height = state.get_height()
 		width = state.get_width()
 
-		print('ENTER THE DRAGON')
+
 		for i in range(height):
 			has_1 = False
 			has_2 = False
@@ -50,6 +50,7 @@ class StudentAI():
 					has_1 = True
 				elif state.get_space(j, i) == -1:
 					has_2 = True
+
 			if has_1 and not has_2:
 				player_1_score += 1
 			elif not has_1 and has_2:
@@ -57,12 +58,32 @@ class StudentAI():
 			elif not has_1 and not has_2:
 				player_1_score += 1
 				player_2_score += 1
+
+		for k in range(width):
+
+			has_1_up = False
+			has_2_up = False
+			for l in range(height):
+
+				if state.get_space(k, l) == 1:
+					has_1_up = True
+				elif state.get_space(k, l) == -1:
+					has_2_up = True
+			if has_1_up and not has_2_up:
+				player_1_score += 1
+			elif not has_1_up and has_2_up:
+				player_2_score += 1
+			elif not has_1_up and not has_2_up:
+				player_1_score += 1
+				player_2_score += 1
+
 			print('player 1 score: ')
 			print(player_1_score)
 			print('player 2 score: ')
 			print(player_2_score)
 		print ('player difference')
 		print (player_1_score - player_2_score)
+
 		return (player_1_score - player_2_score)
 
 	def min_max(self, state, depth, maximizing):
