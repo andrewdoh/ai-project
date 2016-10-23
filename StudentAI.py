@@ -32,6 +32,9 @@ class StudentAI():
 	#heuristic function needs work
 	def heuristic_eval(self, state):
 		'''Returns the winning spaces'''
+
+		player_1_score  = random.randint(-9999, 9999)
+		play_2_score = random.randint(-9999, 9999)
 		horizontal = []
 		vertical = []
 		up = []
@@ -60,8 +63,11 @@ class StudentAI():
 								horizontal.append((i+k, j))
 
 							#return result
+					print('list: ')
 					print (horizontal)
-					print (count)
+					print('count: ')
+					print(count)
+					print('i and j:')
 					print (i,j)
 
 
@@ -76,25 +82,28 @@ class StudentAI():
 								vertical.append((i+k, j+k))
 					print (vertical)
 
-
+				''' count '''
+				print('trick')
 				if(i-1<0 or j+1>=height or state.pieces[i-1][j+1] != state.pieces[i][j]):
 					count = 1
 					while(i+count < width and j-count >= 0 and state.pieces[i][j] == state.pieces[i+count][j-count]):
 						count+=1
+						print('or')
 						if(count >= state.k_length):
 							for k in range(state.k_length):
-								result.append((i+k, j-k))
-							return result
+								down.append((i+k, j-k))
 
+				''' count '''
+				print('treat')
 				if(j-1<0 or state.pieces[i][j-1] != state.pieces[i][j]):
 					count = 1
 					while(j+count < height and state.pieces[i][j] == state.pieces[i][j+count]):
 						count+=1
 						if(count >= state.k_length):
 							for k in range(state.k_length):
-								result.append((i, j+k))
-							return result
-		return result
+								up.append((i, j+k))
+
+		return (player_1_score - play_2_score)
 
 	def min_max(self, state, depth, maximizing):
 		# if depth zero we reached limit or we have no more moves left
@@ -165,7 +174,7 @@ class StudentAI():
 		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-		tup = self.min_max(self.model, 3, True)
+		tup = self.min_max(self.model, 2, True)
 		#print ('TUP')
 		#print (tup)
 		return tup[1]
