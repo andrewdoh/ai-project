@@ -43,7 +43,7 @@ class StudentAI():
 		for i in range(height):
 			has_1 = False
 			has_2 = False
-			print ('cupcake')
+			#print ('cupcake')
 			for j in range(width):
 
 				if state.get_space(j, i) == 1:
@@ -52,12 +52,12 @@ class StudentAI():
 					has_2 = True
 
 			if has_1 and not has_2:
-				player_1_score += 1
+				player_1_score += 100
 			elif not has_1 and has_2:
-				player_2_score += 1
+				player_2_score += 100
 			elif not has_1 and not has_2:
-				player_1_score += 1
-				player_2_score += 1
+				player_1_score += 100
+				player_2_score += 100
 
 		for k in range(width):
 
@@ -70,12 +70,12 @@ class StudentAI():
 				elif state.get_space(k, l) == -1:
 					has_2_up = True
 			if has_1_up and not has_2_up:
-				player_1_score += 1
+				player_1_score += 100
 			elif not has_1_up and has_2_up:
-				player_2_score += 1
+				player_2_score += 100
 			elif not has_1_up and not has_2_up:
-				player_1_score += 1
-				player_2_score += 1
+				player_1_score += 100
+				player_2_score += 100
 
 			print('player 1 score: ')
 			print(player_1_score)
@@ -85,11 +85,12 @@ class StudentAI():
 		print (player_1_score - player_2_score)
 
 		return (player_1_score - player_2_score)
+		#return random.randint(-9999, 9999)
 
-	def min_max(self, state, depth, maximizing):
+	def min_max(self, state, depth, alpha, beta, maximizing):
 		# if depth zero we reached limit or we have no more moves left
 		if depth == 0 or not state.has_moves_left():
-			print ('THE END')
+			#print ('THE END')
 			#use heuristic to determine quality of play
 			return self.heuristic_eval(state), None
 
@@ -97,52 +98,92 @@ class StudentAI():
 
 			#fill actions list with possible moves
 			actions = self.get_available_moves(state)
-			best_value = -99999 # negative infinity
+
 
 			#apply every possible action in actions to state
-			print('waffles')
-
+			#print('waffles')
+			#print('actions')
+			#print (len(actions))
+			#print('actions')
+			#print(actions)
+			best_action = actions[0]
 			for action in actions:
 				#clone board and apply every action in actions
 				clone = state.clone()
 				nextState = clone.place_piece(action, 1 if self.user == 1 else -1)
-
+				#print(nextState)
 				#recurse
-				v = self.min_max(nextState, depth - 1, False)
+				#print('poptart')
+				v = self.min_max(nextState, depth - 1, alpha, beta, False)
+
 
 				#find highest value
-				print(action)
-				if v[0] > best_value:
+				#print('action')
+				#print(action)
+				#print('alpha: ')
+				#print(alpha)
+				#print('beta: ')
+				#print(beta)
+				#print('v: ')
+				#print(v[0])
+				#print('action: ')
+				#print(v[1])
+				if v[0] > alpha:
 					best_action = action
-					best_value = v[0]
-
-
-			return best_value,best_action
+					alpha = v[0]
+					#print('wolf')
+					#print(best_action)
+				if alpha >= beta:
+					break
+			#print('brownie')
+			#print('alpha')
+			#print(alpha)
+			#print('best action: ')
+			#print(best_action)
+			return alpha,best_action
 
 		else: #minimizing player
 
 			actions = self.get_available_moves(state)
-			best_value = 99999 #infinity
+
 
 			#apply every possible action in actions to state
 
-
+			#print('pancakes')
+			#print('actions length: ')
+			#print (len(actions))
+			#print('actions')
+			#print(actions)
+			best_action = actions[0]
 			for action in actions:
 
 				#clone board and apply every action in actions
 				clone = state.clone()
 				nextState = clone.place_piece(action, -1 if self.user == 1 else 1)
+				#print(nextState)
 				#recurse
-				v = self.min_max(nextState, depth - 1, True)
+				v = self.min_max(nextState, depth - 1, alpha, beta, True)
 
+				#print('action')
+				#print(action)
+				#print('alpha: ')
+				#print(alpha)
+				#print('beta: ')
+				#print(beta)
+				#print('v: ')
+				#print(v[0])
 
 				#find lowest value
-				if v[0] < best_value:
+				if v[0] < beta:
 					best_action = action
-					best_value = v[0]
-
-
-			return best_value,best_action
+					beta = v[0]
+				if beta <= alpha:
+					break
+			#print('yolo')
+			#print(beta)
+			#print('best action: ')
+			#print(best_action)
+			return beta,best_action
 
 
 	def make_move(self, deadline):
@@ -153,9 +194,9 @@ class StudentAI():
 		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-		tup = self.min_max(self.model, 3, True)
-		#print ('TUP')
-		#print (tup)
+		tup = self.min_max(self.model, 4, -99999, 99999, True)
+		print ('TUP')
+		print (tup)
 		return tup[1]
 
 '''===================================
