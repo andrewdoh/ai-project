@@ -2,7 +2,6 @@
 from collections import defaultdict
 import random
 import sys
-import time
 sys.path.append(r'\ConnectKSource_python')
 import ConnectKSource_python.board_model as boardmodel
 
@@ -195,26 +194,7 @@ class StudentAI():
 		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-
-		t = time.process_time()
-		elapsed_time = 0
-		while elapsed_time <= 5:
-
-			for depth in range(0, 5):
-				print('time')
-				elapsed_time = time.process_time() - t
-				print(elapsed_time)
-				if elapsed_time == 5:
-					print('cheesecake')
-					print('time')
-					print(elapsed_time)
-					break
-				tup = self.min_max(self.model, depth, -99999, 99999, True)
-
-
-		print('time')
-		elapsed_time = time.process_time() - t
-		print(elapsed_time)
+		tup = self.min_max(self.model, 4, -99999, 99999, True)
 		print ('TUP')
 		print (tup)
 		return tup[1]
