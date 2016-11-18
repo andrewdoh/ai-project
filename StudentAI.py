@@ -93,7 +93,7 @@ class StudentAI():
 		if depth == 0 or not state.has_moves_left():
 			#print ('THE END')
 			#use heuristic to determine quality of play
-			return self.heuristic_eval(state), None
+			return self.heuristic_eval(state), state.get_last_move()
 
 		if maximizing: #maximizing player
 
@@ -196,10 +196,10 @@ class StudentAI():
 
 		#return min_max which selects best possible move within depth d
 		best_action_dict = []
-		t = time.process_time()
 		elapsed_time = 0
 		depth = 0
-		while elapsed_time < 6 and depth < 99999:
+		t = time.process_time()
+		while elapsed_time < 5 and depth < 99999:
 
 			tup = self.min_max(self.model, depth, -99999, 99999, True)
 			best_action_dict.append(tup)
@@ -207,6 +207,8 @@ class StudentAI():
 			elapsed_time = time.process_time() - t
 			#print('brownie')
 			#print(best_action_dict)
+			#print('max')
+			#print(max(best_action_dict))
 			#print(max(best_action_dict)[1])
 			#print('cheesecake')
 			#print(elapsed_time)
@@ -217,8 +219,8 @@ class StudentAI():
 		print ('TUP')
 		print (tup)
 		print(tup[1])
-		print (max(best_action_dict)[1])
-		return tup[1]
+		best_move = (max(best_action_dict)[1])
+		return best_move
 
 '''===================================
 DO NOT MODIFY ANYTHING BELOW THIS LINE
