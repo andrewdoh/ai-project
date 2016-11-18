@@ -1,0 +1,14 @@
+#!/usr/bin/python
+
+import sys
+
+def main():
+L = [7,9,5,2,5,6]
+n = len(L)
+
+print(L)
+
+
+
+if __name__ = '__main__':
+    main()

@@ -195,28 +195,29 @@ class StudentAI():
 		#return moves[random.randint(0, len(moves) - 1)]
 
 		#return min_max which selects best possible move within depth d
-
+		best_action_dict = []
 		t = time.process_time()
 		elapsed_time = 0
-		while elapsed_time <= 5:
+		depth = 0
+		while elapsed_time < 6 and depth < 99999:
 
-			for depth in range(0, 5):
-				print('time')
-				elapsed_time = time.process_time() - t
-				print(elapsed_time)
-				if elapsed_time == 5:
-					print('cheesecake')
-					print('time')
-					print(elapsed_time)
-					break
-				tup = self.min_max(self.model, depth, -99999, 99999, True)
+			tup = self.min_max(self.model, depth, -99999, 99999, True)
+			best_action_dict.append(tup)
+			depth += 1
+			elapsed_time = time.process_time() - t
+			#print('brownie')
+			#print(best_action_dict)
+			#print(max(best_action_dict)[1])
+			#print('cheesecake')
+			#print(elapsed_time)
 
+		print('depth ended at: ')
+		print(depth)
 
-		print('time')
-		elapsed_time = time.process_time() - t
-		print(elapsed_time)
 		print ('TUP')
 		print (tup)
+		print(tup[1])
+		print (max(best_action_dict)[1])
 		return tup[1]
 
 '''===================================
