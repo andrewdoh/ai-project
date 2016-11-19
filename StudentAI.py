@@ -78,12 +78,12 @@ class StudentAI():
 				player_1_score += 100
 				player_2_score += 100
 
-			print('player 1 score: ')
-			print(player_1_score)
-			print('player 2 score: ')
-			print(player_2_score)
-		print ('player difference')
-		print (player_1_score - player_2_score)
+			#print('player 1 score: ')
+			#print(player_1_score)
+			#print('player 2 score: ')
+			#print(player_2_score)
+		#print ('player difference')
+		#print (player_1_score - player_2_score)
 
 		return (player_1_score - player_2_score)
 		#return random.randint(-9999, 9999)
@@ -199,19 +199,19 @@ class StudentAI():
 		elapsed_time = 0
 		depth = 0
 		t = time.process_time()
-		while elapsed_time < 5 and depth < 99999:
+		while elapsed_time < 4 and depth < 99999:
 
 			tup = self.min_max(self.model, depth, -99999, 99999, True)
 			best_action_dict.append(tup)
 			depth += 1
 			elapsed_time = time.process_time() - t
-			#print('brownie')
-			#print(best_action_dict)
-			#print('max')
-			#print(max(best_action_dict))
-			#print(max(best_action_dict)[1])
-			#print('cheesecake')
-			#print(elapsed_time)
+			print('brownie')
+			print(best_action_dict)
+			print('max')
+			print(max(best_action_dict))
+			print(max(best_action_dict)[1])
+			print('cheesecake')
+			print(elapsed_time)
 
 		print('depth ended at: ')
 		print(depth)
@@ -220,6 +220,7 @@ class StudentAI():
 		print (tup)
 		print(tup[1])
 		best_move = (max(best_action_dict)[1])
+		print(best_move)
 		return best_move
 
 '''===================================
