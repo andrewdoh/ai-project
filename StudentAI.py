@@ -211,12 +211,13 @@ class StudentAI():
 		#depth = 1
 		t = time.process_time()
 		elapsed_time = 0
+		signal.alarm(deadline)
 		for depth in range(1, 99999):
-			signal.alarm(deadline)
+
 			try:
 				tup = self.min_max(self.model, depth, -99999, 99999, True)
 				best_action_dict.append(tup)
-				depth += 1
+				#depth += 1
 				elapsed_time = time.process_time() - t
 				print('elapsed_time: ', elapsed_time)
 				print('brownie')
