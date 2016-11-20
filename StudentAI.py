@@ -3,10 +3,17 @@ from collections import defaultdict
 import random
 import sys
 import time
+import signal
 sys.path.append(r'\ConnectKSource_python')
 import ConnectKSource_python.board_model as boardmodel
 
 team_name = "AndRod" #TODO change me
+
+class TimeoutException(Exception):   # Custom exception class
+	pass
+
+def timeout_handler(signum, frame):   # Custom signal handler
+    	raise TimeoutException
 
 class StudentAI():
 	def __init__(self, player, state):
@@ -30,6 +37,7 @@ class StudentAI():
 		moves = [k for k in spaces.keys() if spaces[k] == 0]
 
 		return moves
+
 	#heuristic function needs work
 	def heuristic_eval(self, state):
 		'''Returns the winning spaces'''
@@ -196,22 +204,36 @@ class StudentAI():
 
 		#return min_max which selects best possible move within depth d
 		best_action_dict = []
-		elapsed_time = 0
-		depth = 1
-		t = time.process_time()
-		while elapsed_time < 3 and depth < 99999:
+		signal.signal(signal.SIGALRM, timeout_handler)
 
-			tup = self.min_max(self.model, depth, -99999, 99999, True)
-			best_action_dict.append(tup)
-			depth += 1
-			elapsed_time = time.process_time() - t
-			print('brownie')
-			print(best_action_dict)
-			print('max')
-			print(max(best_action_dict))
-			print(max(best_action_dict)[1])
-			print('cheesecake')
-			print(elapsed_time)
+
+
+		#depth = 1
+		t = time.process_time()
+		elapsed_time = 0
+		for depth in range(1, 99999):
+			signal.alarm(5)
+			try:
+				tup = self.min_max(self.model, depth, -99999, 99999, True)
+				best_action_dict.append(tup)
+				depth += 1
+				elapsed_time = time.process_time() - t
+				print('elapsed_time: ', elapsed_time)
+				print('brownie')
+				print(best_action_dict)
+				print('max')
+				print(max(best_action_dict))
+				print(max(best_action_dict)[1])
+				print('cheesecake')
+
+			except TimeoutException:
+				print("TIMEOUT")
+				break
+
+
+
+
+
 
 		print('depth ended at: ')
 		print(depth)
