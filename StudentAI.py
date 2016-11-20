@@ -212,7 +212,7 @@ class StudentAI():
 		t = time.process_time()
 		elapsed_time = 0
 		for depth in range(1, 99999):
-			signal.alarm(5)
+			signal.alarm(deadline)
 			try:
 				tup = self.min_max(self.model, depth, -99999, 99999, True)
 				best_action_dict.append(tup)
@@ -250,7 +250,7 @@ DO NOT MODIFY ANYTHING BELOW THIS LINE
 ==================================='''
 
 is_first_player = False
-deadline = 0
+deadline = 5
 
 def make_ai_shell_from_input():
 	'''
