@@ -238,7 +238,8 @@ class StudentAI():
 
 		print('depth ended at: ')
 		print(depth)
-
+		elapsed_time = time.process_time() - t
+		print('total elapsed_time: ', elapsed_time)
 		print ('TUP')
 		print (tup)
 		print(tup[1])
