@@ -42,8 +42,8 @@ class StudentAI():
 	def heuristic_eval(self, state):
 		'''Returns the winning spaces'''
 
-		
-	
+
+
 		player_1_score  = 0
 		player_2_score = 0
 
@@ -53,9 +53,9 @@ class StudentAI():
 		# alternative heuristic
 		goal = 5	# goal = K in ConnectK
 		moves = self.get_available_moves(state)
-	
-	
-		for i in range(height):	
+
+
+		for i in range(height):
 			j = 1
 			moveOn = False
 			player1 = 0
@@ -69,7 +69,7 @@ class StudentAI():
 				player1 += 1
 				player2 += 1
 
-			
+
 
 			while(j < width and (not moveOn)):
 				#hp1Count = 0
@@ -84,9 +84,9 @@ class StudentAI():
 					#hp2count += 1
 					#if(hp2count == 4 and (j + 1) < width):
 						#player2 += 500
-				
+
 				elif state.get_space(j - 1, i) == 0:
-					player1 += 1	
+					player1 += 1
 					player2 += 1
 
 				elif state.get_space(j - 1, i) == 1:
@@ -109,8 +109,8 @@ class StudentAI():
 
 				player_1_score += player1
 				player_2_score += player2
-				j += 1	
-		
+				j += 1
+
 		for j in range (width):
 			player1 = 0
 			player2 = 0
@@ -122,13 +122,13 @@ class StudentAI():
 				player1 += 100
 			elif state.get_space(j, 0) == 0:
 				player1 += 1
-				player2 += 1		
-			
+				player2 += 1
+
 			while(i < height and (not moveRight)):
 				if state.get_space(j, i) not in moves:
 					i += 1
-					moveRight = True	
-			
+					moveRight = True
+
 				if state.get_space(j, i - 1) == -1:
 					player2 += 100
 					#if player1 >= 400 and (i + 1) < height:
@@ -145,63 +145,10 @@ class StudentAI():
 
 				player_1_score += player1
 				player_2_score += player2
-	
-		print('player 1 score: ', player_1_score)
-		print('player 2 score: ', player_2_score)
-		return(player_1_score - player_2_score)	
 
-			
-
-"""
-		for i in range(height):
-			has_1 = False
-			has_2 = False
-			#print ('cupcake')
-			for j in range(width):
-
-				if state.get_space(j, i) == 1:
-					has_1 = True
-				elif state.get_space(j, i) == -1:
-					has_2 = True
-
-			if has_1 and not has_2:
-				player_1_score += 100
-			elif not has_1 and has_2:
-				player_2_score += 100
-			elif not has_1 and not has_2:
-				player_1_score += 100
-				player_2_score += 100
-
-	
-		for k in range(width):
-
-			has_1_up = False
-			has_2_up = False
-			for l in range(height):
-
-				if state.get_space(k, l) == 1:
-					has_1_up = True
-				elif state.get_space(k, l) == -1:
-					has_2_up = True
-			if has_1_up and not has_2_up:
-				player_1_score += 100
-			elif not has_1_up and has_2_up:
-				player_2_score += 100
-			elif not has_1_up and not has_2_up:
-				player_1_score += 100
-				player_2_score += 100
-
-			#print('player 1 score: ')
-			#print(player_1_score)
-			#print('player 2 score: ')
-			#print(player_2_score)
-		#print ('player difference')
-	
-		#print (player_1_score - player_2_score)
-
-		return (player_1_score - player_2_score)
-		#return random.randint(-9999, 9999)
-	"""
+		#print('player 1 score: ', player_1_score)
+		#print('player 2 score: ', player_2_score)
+		return(player_1_score - player_2_score)
 
 	def min_max(self, state, depth, alpha, beta, maximizing):
 		# if depth zero we reached limit or we have no more moves left
