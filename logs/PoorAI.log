@@ -1,0 +1,129 @@
+2016-12-01 11:50:46 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:50:51 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  returns move 1, 0.
+2016-12-01 11:50:51 [Thread-112] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:50:51 [Thread-112] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 1, 1.
+2016-12-01 11:50:51 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:50:56 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  returns move 3, 0.
+2016-12-01 11:50:56 [Thread-112] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:50:56 [Thread-112] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 2, 1.
+2016-12-01 11:50:56 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:51:01 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  returns move 0, 0.
+2016-12-01 11:51:01 [Thread-112] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:51:02 [Thread-112] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 0, 1.
+2016-12-01 11:51:02 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:51:07 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  returns move 8, 0.
+2016-12-01 11:51:07 [Thread-112] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:51:07 [Thread-112] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 5, 1.
+2016-12-01 11:51:07 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:51:12 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  returns move 4, 0.
+2016-12-01 11:51:12 [Thread-112] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:51:12 [Thread-112] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 3, 1.
+2016-12-01 11:51:12 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:51:17 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  returns move 5, 0.
+2016-12-01 11:51:17 [Thread-112] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:51:17 [Thread-112] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 6, 0.
+2016-12-01 11:51:17 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:51:22 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  returns move 7, 0.
+2016-12-01 11:51:22 [Thread-112] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:51:22 [Thread-112] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 6, 1.
+2016-12-01 11:51:22 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:51:27 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  returns move 2, 0.
+2016-12-01 11:51:27 [Thread-112] DEBUG connectK.ConnectK - Player 1 []  () wins!
+2016-12-01 11:51:47 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:51:52 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  returns move 1, 3.
+2016-12-01 11:51:52 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:51:52 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 3, 0.
+2016-12-01 11:51:52 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:51:57 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  returns move 0, 3.
+2016-12-01 11:51:57 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:51:57 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 5, 0.
+2016-12-01 11:51:57 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:52:03 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  returns move 7, 3.
+2016-12-01 11:52:03 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:52:03 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 2, 0.
+2016-12-01 11:52:03 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:52:08 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  returns move 6, 6.
+2016-12-01 11:52:08 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:52:08 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 3, 1.
+2016-12-01 11:52:08 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:52:13 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  returns move 8, 0.
+2016-12-01 11:52:13 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:52:13 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 4, 0.
+2016-12-01 11:52:13 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:52:18 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  returns move 1, 3.
+2016-12-01 11:52:18 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:52:18 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 4, 1.
+2016-12-01 11:52:18 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:52:23 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  returns move 1, 3.
+2016-12-01 11:52:23 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:52:23 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 1, 3.
+2016-12-01 11:52:23 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:52:28 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  returns move 1, 6.
+2016-12-01 11:52:28 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:52:28 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 0, 1.
+2016-12-01 11:52:28 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:52:33 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  returns move 1, 6.
+2016-12-01 11:52:33 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:52:33 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 2, 1.
+2016-12-01 11:52:33 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:52:38 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  returns move 1, 6.
+2016-12-01 11:52:38 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:52:38 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 2, 2.
+2016-12-01 11:52:38 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:52:43 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  returns move 3, 6.
+2016-12-01 11:52:43 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:52:43 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 2, 3.
+2016-12-01 11:52:43 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:52:48 [Thread-129] DEBUG connectK.ConnectK - Player 1 []  returns move 3, 6.
+2016-12-01 11:52:48 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:52:48 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 2, 4.
+2016-12-01 11:52:48 [Thread-129] DEBUG connectK.ConnectK - Player 2 [PoorAI]  (PoorAI) wins!
+2016-12-01 11:53:35 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:53:40 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  returns move 1, 3.
+2016-12-01 11:53:40 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:53:40 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 3, 0.
+2016-12-01 11:53:40 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:53:45 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  returns move 0, 3.
+2016-12-01 11:53:45 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:53:45 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 5, 0.
+2016-12-01 11:53:45 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:53:50 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  returns move 7, 3.
+2016-12-01 11:53:50 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:53:51 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 2, 0.
+2016-12-01 11:53:51 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:53:56 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  returns move 6, 6.
+2016-12-01 11:53:56 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:53:56 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 3, 1.
+2016-12-01 11:53:56 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:54:01 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  returns move 8, 0.
+2016-12-01 11:54:01 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:54:01 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 4, 0.
+2016-12-01 11:54:01 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:54:06 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  returns move 1, 3.
+2016-12-01 11:54:06 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:54:06 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 4, 1.
+2016-12-01 11:54:06 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:54:11 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  returns move 1, 3.
+2016-12-01 11:54:11 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:54:11 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 1, 3.
+2016-12-01 11:54:11 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:54:16 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  returns move 1, 6.
+2016-12-01 11:54:16 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:54:16 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 0, 1.
+2016-12-01 11:54:16 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:54:21 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  returns move 1, 6.
+2016-12-01 11:54:21 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:54:21 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 2, 1.
+2016-12-01 11:54:21 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:54:26 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  returns move 1, 6.
+2016-12-01 11:54:26 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:54:26 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 2, 2.
+2016-12-01 11:54:26 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:54:31 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  returns move 3, 6.
+2016-12-01 11:54:31 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:54:31 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 2, 3.
+2016-12-01 11:54:31 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 11:54:36 [Thread-155] DEBUG connectK.ConnectK - Player 1 []  returns move 3, 6.
+2016-12-01 11:54:36 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  says:
+2016-12-01 11:54:36 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  returns move 2, 4.
+2016-12-01 11:54:36 [Thread-155] DEBUG connectK.ConnectK - Player 2 [PoorAI]  (PoorAI) wins!

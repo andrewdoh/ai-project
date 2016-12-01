@@ -61,7 +61,7 @@ class StudentAI():
 			player1 = 0
 			player2 = 0
 			# space(0, i)
-			if state.get_space(0, i) == -1:
+			if state.get_space(0, i) == 2:
 				player2  += 10
 			elif state.get_space(0, i) == 1:
 				player1 += 10
@@ -78,7 +78,7 @@ class StudentAI():
 					j += 1
 					moveOn = True
 
-				if state.get_space(j - 1, i) == -1:
+				if state.get_space(j - 1, i) == 2:
 					#player1 = 0
 					player2 += 100
 					#hp2count += 1
@@ -95,13 +95,13 @@ class StudentAI():
 					#if(player2 >= 400 and (j + 1) < width):
 						#player2 += 500
 
-				if  i > 0 and state.get_space(j - 1, i - 1) == -1:
+				if  i > 0 and state.get_space(j - 1, i - 1) == 2:
 					player2 += 100
 
 				elif i > 0 and state.get_space(j - 1, i - 1) == 1:
 					player1 += 100
 
-				if i > 0 and state.get_space(j + 1, i - 1) == -1:
+				if i > 0 and state.get_space(j + 1, i - 1) == 2:
 					player2 += 100
 
 				elif i > 0 and state.get_space(j + 1, i - 1) == 1:
@@ -116,7 +116,7 @@ class StudentAI():
 			player2 = 0
 			i = 0
 			moveRight = False
-			if state.get_space(j, 0) == -1:
+			if state.get_space(j, 0) == 2:
 				player2 += 100
 			elif state.get_space(j, 0) == 1:
 				player1 += 100
@@ -129,7 +129,7 @@ class StudentAI():
 					i += 1
 					moveRight = True
 
-				if state.get_space(j, i - 1) == -1:
+				if state.get_space(j, i - 1) == 2:
 					player2 += 100
 					#if player1 >= 400 and (i + 1) < height:
 						#player1 += 500
@@ -173,7 +173,7 @@ class StudentAI():
 			for action in actions:
 				#clone board and apply every action in actions
 				clone = state.clone()
-				nextState = clone.place_piece(action, 1 if self.user == 1 else -1)
+				nextState = clone.place_piece(action, 1 if self.user == 1 else 2)
 				#print(nextState)
 				#recurse
 				#print('poptart')
@@ -222,7 +222,7 @@ class StudentAI():
 
 				#clone board and apply every action in actions
 				clone = state.clone()
-				nextState = clone.place_piece(action, -1 if self.user == 1 else 1)
+				nextState = clone.place_piece(action, 2 if self.user == 1 else 1)
 				#print(nextState)
 				#recurse
 				v = self.min_max(nextState, depth - 1, alpha, beta, True)
@@ -265,7 +265,7 @@ class StudentAI():
 		#depth = 1
 		t = time.process_time()
 		elapsed_time = 0
-		signal.alarm(deadline)
+		signal.alarm(int(deadline/1000) - 1)
 		for depth in range(1, 99999):
 
 			try:
