@@ -2,12 +2,6 @@
 from collections import defaultdict
 import random
 import sys
-sys.path.append(r'\ConnectKSource_python')
-import ConnectKSource_python.board_model as boardmodel
-
-from collections import defaultdict
-import random
-import sys
 import time
 import signal
 sys.path.append(r'\ConnectKSource_python')
@@ -275,7 +269,7 @@ class StudentAI():
 		for depth in range(1, 99999):
 
 			try:
-				tup = self.min_max(self.model, depth, -99999, 99999, True)
+				tup = self.min_max(model, depth, -99999, 99999, True)
 				best_action_dict.append(tup)
 				#depth += 1
 				elapsed_time = time.process_time() - t

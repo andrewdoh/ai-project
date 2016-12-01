@@ -25,3 +25,28 @@
 2016-12-01 00:09:29 [main] DEBUG connectK.ConnectK - Player 2 []  says:
 2016-12-01 00:09:35 [main] DEBUG connectK.ConnectK - Player 2 []  returned a bad move null or went over time (6000).
 2016-12-01 00:09:35 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  (GUI) wins!
+2016-12-01 00:16:41 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  says:
+2016-12-01 00:16:42 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  returns move 3, 4.
+2016-12-01 00:16:42 [main] DEBUG connectK.ConnectK - Player 2 []  says:
+2016-12-01 00:16:48 [main] DEBUG connectK.ConnectK - Player 2 []  returned a bad move null or went over time (6001).
+2016-12-01 00:16:48 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  (GUI) wins!
+2016-12-01 00:17:27 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  says:
+2016-12-01 00:17:31 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  says:
+2016-12-01 00:17:31 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  returns move 2, 3.
+2016-12-01 00:17:31 [main] DEBUG connectK.ConnectK - Player 2 []  says:
+2016-12-01 00:17:37 [main] DEBUG connectK.ConnectK - Player 2 []  returned a bad move null or went over time (6000).
+2016-12-01 00:17:37 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  (GUI) wins!
+2016-12-01 00:18:18 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  says:
+2016-12-01 00:18:19 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  returns move 4, 4.
+2016-12-01 00:18:19 [main] DEBUG connectK.ConnectK - Player 2 []  says:
+2016-12-01 00:18:25 [main] DEBUG connectK.ConnectK - Player 2 []  returned a bad move null or went over time (6000).
+2016-12-01 00:18:25 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  (GUI) wins!
+2016-12-01 00:19:03 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  says:
+2016-12-01 00:19:05 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  returns move 6, 2.
+2016-12-01 00:19:05 [main] DEBUG connectK.ConnectK - Player 2 []  says:
+2016-12-01 00:19:09 [main] DEBUG connectK.ConnectK - Player 2 []  returns move 1, 0.
+2016-12-01 00:19:09 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  says:
+2016-12-01 00:19:12 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  returns move 5, 2.
+2016-12-01 00:19:12 [main] DEBUG connectK.ConnectK - Player 2 []  says:
+2016-12-01 00:19:16 [main] DEBUG connectK.ConnectK - Player 2 []  returns move 3, 0.
+2016-12-01 00:19:16 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  says:
