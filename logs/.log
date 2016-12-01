@@ -1,0 +1,39 @@
+2016-11-30 23:57:27 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  says:
+2016-11-30 23:57:37 [Thread-1] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-11-30 23:57:37 [Thread-1] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-11-30 23:57:37 [Thread-1] DEBUG connectK.ConnectK - Player 1 []  returned a bad move null or went over time (121).
+2016-11-30 23:57:37 [Thread-1] DEBUG connectK.ConnectK - Player 1 []  returned a bad move null or went over time (121).
+2016-11-30 23:57:37 [Thread-1] DEBUG connectK.ConnectK - Player 2 []  () wins!
+2016-11-30 23:57:37 [Thread-1] DEBUG connectK.ConnectK - Player 2 []  () wins!
+2016-11-30 23:59:46 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  says:
+2016-11-30 23:59:48 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  returns move 5, 4.
+2016-11-30 23:59:48 [main] DEBUG connectK.ConnectK - Player 2 []  says:
+2016-11-30 23:59:54 [main] DEBUG connectK.ConnectK - Player 2 []  returned a bad move null or went over time (6001).
+2016-11-30 23:59:54 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  (GUI) wins!
+2016-12-01 00:01:59 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  says:
+2016-12-01 00:04:43 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  says:
+2016-12-01 00:04:45 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  returns move 3, 3.
+2016-12-01 00:04:45 [main] DEBUG connectK.ConnectK - Player 2 []  says:
+2016-12-01 00:04:51 [main] DEBUG connectK.ConnectK - Player 2 []  returned a bad move null or went over time (6001).
+2016-12-01 00:04:51 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  (GUI) wins!
+2016-12-01 00:04:56 [Thread-3] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 00:04:56 [Thread-3] DEBUG connectK.ConnectK - Player 1 []  says:
+2016-12-01 00:05:02 [Thread-3] DEBUG connectK.ConnectK - Player 1 []  returned a bad move null or went over time (6000).
+2016-12-01 00:05:02 [Thread-3] DEBUG connectK.ConnectK - Player 1 []  returned a bad move null or went over time (6000).
+2016-12-01 00:05:02 [Thread-3] DEBUG connectK.ConnectK - Player 2 []  () wins!
+2016-12-01 00:05:02 [Thread-3] DEBUG connectK.ConnectK - Player 2 []  () wins!
+2016-12-01 00:05:54 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  says:
+2016-12-01 00:05:55 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  returns move 5, 2.
+2016-12-01 00:05:55 [main] DEBUG connectK.ConnectK - Player 2 []  says:
+2016-12-01 00:06:01 [main] DEBUG connectK.ConnectK - Player 2 []  returned a bad move null or went over time (6000).
+2016-12-01 00:06:01 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  (GUI) wins!
+2016-12-01 00:07:02 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  says:
+2016-12-01 00:07:02 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  returns move 1, 2.
+2016-12-01 00:07:02 [main] DEBUG connectK.ConnectK - Player 2 []  says:
+2016-12-01 00:07:08 [main] DEBUG connectK.ConnectK - Player 2 []  returned a bad move null or went over time (6001).
+2016-12-01 00:07:08 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  (GUI) wins!
+2016-12-01 00:09:25 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  says:
+2016-12-01 00:09:29 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  returns move 2, 4.
+2016-12-01 00:09:29 [main] DEBUG connectK.ConnectK - Player 2 []  says:
+2016-12-01 00:09:35 [main] DEBUG connectK.ConnectK - Player 2 []  returned a bad move null or went over time (6000).
+2016-12-01 00:09:35 [main] DEBUG connectK.ConnectK - Player 1 [GUI]  (GUI) wins!

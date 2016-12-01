@@ -1,2 +1,3 @@
 #!/bin/bash 
-java -jar ConnectK_1.8.jar py:StudentAI.py
+java -jar ConnectK_1.8_timer_enabled.jar py:StudentAI.py
+
