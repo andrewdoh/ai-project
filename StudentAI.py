@@ -42,8 +42,8 @@ class StudentAI():
 	def heuristic_eval(self, state):
 		'''Returns the winning spaces'''
 
-		
-	
+
+
 		player_1_score  = 0
 		player_2_score = 0
 
@@ -53,15 +53,15 @@ class StudentAI():
 		# alternative heuristic
 		goal = 5	# goal = K in ConnectK
 		moves = self.get_available_moves(state)
-	
-	
-		for i in range(height):	
+
+
+		for i in range(height):
 			j = 1
 			moveOn = False
 			player1 = 0
 			player2 = 0
 			# space(0, i)
-			if state.get_space(0, i) == -1:
+			if state.get_space(0, i) == 2:
 				player2  += 100
 			elif state.get_space(0, i) == 1:
 				player1 += 100
@@ -69,7 +69,7 @@ class StudentAI():
 				player1 += 1
 				player2 += 1
 
-			
+
 
 			while(j < width and (not moveOn)):
 				if state.get_space(j, i) not in moves:
@@ -79,15 +79,15 @@ class StudentAI():
 				count1 = 0
 				count2 = 0
 
-				if state.get_space(j - 1, i) == -1:
+				if state.get_space(j - 1, i) == 2:
 					player1 = 0
 					player2 += 100
 					count2 += 1
 					if(count2 == 4):
 						player2 += 500
-				
+
 				elif state.get_space(j - 1, i) == 0:
-					player1 += 1	
+					player1 += 1
 					player2 += 1
 
 				elif state.get_space(j - 1, i) == 1:
@@ -97,13 +97,13 @@ class StudentAI():
 					if(count1 == 4):
 						player1 += 500
 
-				if  i > 0 and state.get_space(j - 1, i - 1) == -1:
+				if  i > 0 and state.get_space(j - 1, i - 1) == 2:
 					player2 += 100
 
 				elif i > 0 and state.get_space(j - 1, i - 1) == 1:
 					player1 += 100
 
-				if i > 0 and state.get_space(j + 1, i - 1) == -1:
+				if i > 0 and state.get_space(j + 1, i - 1) == 2:
 					player2 += 100
 
 				elif i > 0 and state.get_space(j + 1, i - 1) == 1:
@@ -111,29 +111,29 @@ class StudentAI():
 
 				player_1_score += player1
 				player_2_score += player2
-				j += 1	
-		
+				j += 1
+
 		for j in range (width):
 			player1 = 0
 			player2 = 0
 			i = 0
 			moveRight = False
-			if state.get_space(j, 0) == -1:
+			if state.get_space(j, 0) == 2:
 				player2 += 100
 			elif state.get_space(j, 0) == 1:
 				player1 += 100
 			elif state.get_space(j, 0) == 0:
 				player1 += 1
-				player2 += 1		
-			
+				player2 += 1
+
 			while(i < height and (not moveRight)):
 				if state.get_space(j, i) not in moves:
 					i += 1
-					moveRight = True	
-			
+					moveRight = True
+
 				count1 = 0
 				count2 = 0
-				if state.get_space(j, i - 1) == -1:
+				if state.get_space(j, i - 1) == 2:
 					player1 = 0
 					player2 += 100
 					count2 += 1
@@ -153,12 +153,12 @@ class StudentAI():
 
 				player_1_score += player1
 				player_2_score += player2
-	
-		print('player 1 score: ', player_1_score)
-		print('player 2 score: ', player_2_score)
-		return(player_1_score - player_2_score)	
 
-		
+		#print('player 1 score: ', player_1_score)
+		#print('player 2 score: ', player_2_score)
+		return(player_1_score - player_2_score)
+
+
 	def min_max(self, state, depth, alpha, beta, maximizing):
 		# if depth zero we reached limit or we have no more moves left
 		if depth == 0 or not state.has_moves_left():
