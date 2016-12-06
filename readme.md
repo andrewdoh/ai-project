@@ -1,10 +1,9 @@
 #CS-171 AI-PROJECT
 ### INSTRUCTIONS
 to start program go to the root directory of wherever the project is 
-and just execute hello.sh:
+and type the follow:
 EXAMPLE
 ```
 
-[user@pcc ai_project]$ ./hello.sh
-
+[user@pc ai_project]$ java -jar ConnectK_1.8_timer_enabled.jar py:StudentAI.py
 ```
